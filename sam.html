@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sam Jansen | IT Support</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: white;
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 12px;
+            background: #e5e7eb;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .info {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            background: #e5e7eb;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* NETWERKDIAGRAM */
+
+        .network {
+            position: relative;
+            min-height: 430px;
+            margin-top: 30px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .node {
+            position: absolute;
+            width: 180px;
+            padding: 18px;
+            text-align: center;
+            background: white;
+            border: 2px solid #374151;
+            border-radius: 12px;
+            z-index: 2;
+        }
+
+        .node h4 {
+            margin-bottom: 5px;
+        }
+
+        .node small {
+            color: #666;
+        }
+
+        .milan {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .sam {
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cloud {
+            top: 190px;
+            left: 8%;
+        }
+
+        .networking {
+            top: 190px;
+            right: 8%;
+        }
+
+        .project {
+            top: 190px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f3f4f6;
+        }
+
+        .line {
+            position: absolute;
+            height: 3px;
+            background: #6b7280;
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        .line-milan-project {
+            width: 150px;
+            top: 132px;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        .line-project-sam {
+            width: 150px;
+            top: 270px;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        .line-project-cloud {
+            width: 190px;
+            top: 235px;
+            left: 29%;
+            transform: rotate(180deg);
+        }
+
+        .line-project-network {
+            width: 190px;
+            top: 235px;
+            left: 59%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .network {
+                min-height: 650px;
+            }
+
+            .milan {
+                top: 30px;
+            }
+
+            .project {
+                top: 220px;
+            }
+
+            .cloud {
+                top: 340px;
+                left: 5%;
+            }
+
+            .networking {
+                top: 340px;
+                right: 5%;
+            }
+
+            .sam {
+                bottom: 30px;
+            }
+
+            .line-milan-project,
+            .line-project-sam {
+                height: 90px;
+                width: 3px;
+                transform: translateX(-50%);
+            }
+
+            .line-project-cloud,
+            .line-project-network {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Sam Jansen</h1>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projecten.html">Projecten</a>
+        <a href="sam.html">Sam</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Sam Jansen</h2>
+    <p>IT Support & Cloud Support</p>
+
+    <span class="badge">
+        Fictief / educatief OSINT-project
+    </span>
+</section>
+
+<main class="container">
+
+    <section class="card">
+        <h3>Over Sam</h3>
+
+        <p>
+            Sam Jansen is een fictieve IT-medewerker die zich bezighoudt
+            met IT-support, netwerkbeheer en Microsoft 365. Sam werkt
+            samen met Milan de Rooi aan verschillende ICT-projecten.
+        </p>
+    </section>
+
+    <section class="card">
+
+        <h3>Profiel</h3>
+
+        <div class="info-grid">
+
+            <div class="info">
+                <strong>Naam</strong>
+                Sam Jansen
+            </div>
+
+            <div class="info">
+                <strong>Functie</strong>
+                IT Support / Cloud Support
+            </div>
+
+            <div class="info">
+                <strong>Samenwerking</strong>
+                Milan de Rooi
+            </div>
+
+            <div class="info">
+                <strong>Project</strong>
+                Cloud Migration Lab
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h3>Vaardigheden</h3>
+
+        <div class="skills">
+
+            <span class="skill">Microsoft 365</span>
+            <span class="skill">Netwerkbeheer</span>
+            <span class="skill">IT Support</span>
+            <span class="skill">Cloud</span>
+            <span class="skill">VLAN</span>
+            <span class="skill">DHCP</span>
+
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h3>Samenwerking met Milan</h3>
+
+        <p>
+            Sam werkt samen met Milan de Rooi aan het fictieve
+            <strong>Cloud Migration Lab</strong>.
+            Milan richt zich voornamelijk op de cloudomgeving en Linux.
+            Sam houdt zich vooral bezig met netwerkbeheer,
+            Microsoft 365 en ondersteuning.
+        </p>
+
+    </section>
+
+    <section class="card">
+
+        <h3>Netwerkdiagram</h3>
+
+        <p>
+            Onderstaand diagram laat zien hoe Sam verbonden is met
+            Milan en het Cloud Migration Lab.
+        </p>
+
+        <div class="network">
+
+            <!-- Personen -->
+            <div class="node milan">
+                <h4>Milan de Rooi</h4>
+                <small>Junior IT / Cloud</small>
+            </div>
+
+            <div class="node sam">
+                <h4>Sam Jansen</h4>
+                <small>IT Support / Cloud</small>
+            </div>
+
+            <!-- Project -->
+            <div class="node project">
+                <h4>Cloud Migration Lab</h4>
+                <small>Gezamenlijk project</small>
+            </div>
+
+            <!-- Onderwerpen -->
+            <div class="node cloud">
+                <h4>Cloud</h4>
+                <small>Azure / Linux</small>
+            </div>
+
+            <div class="node networking">
+                <h4>Netwerk</h4>
+                <small>VLAN / DHCP</small>
+            </div>
+
+            <!-- Verbindingen -->
+            <div class="line line-milan-project"></div>
+            <div class="line line-project-sam"></div>
+            <div class="line line-project-cloud"></div>
+            <div class="line line-project-network"></div>
+
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h3>Gerelateerde pagina's</h3>
+
+        <p>
+            <a href="projecten.html">Bekijk de projecten van Milan</a>
+        </p>
+
+        <p>
+            <a href="index.html">Terug naar het profiel van Milan</a>
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    Fictief / educatief OSINT-project – Alle personen en gegevens zijn fictief.
+</footer>
+
+</body>
+</html>
